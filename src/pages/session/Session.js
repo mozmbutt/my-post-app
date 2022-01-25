@@ -14,7 +14,7 @@ function Session() {
 		const user_password = sessionStorage.getItem('password')
 		if (user_email === email && user_password === password) {
 			sessionStorage.setItem('isLoggedIn', true)
-			navigate("/")
+			navigate("/posts")
 		} else {
 			setError("Incorrect email or password!");
 			return;

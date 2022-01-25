@@ -13,6 +13,8 @@ import Session from './pages/session/Session';
 import Registeration from './pages/registeration/Registeration';
 
 function App() {
+  const isLoggedIn = sessionStorage.getItem('isLoggedIn')
+  console.log(isLoggedIn);
   const [posts, setPosts] = useState([])
   const [isFetching, setIsFetching] = useState(false);
   const [page, setPage] = useState(1);
@@ -50,13 +52,23 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Navbar />}>
-            <Route path="/" element={posts ? <Posts
+            {
+              !isLoggedIn
+                ? <Route path="/" element={<Session />} />
+                : <Route path="/" element={posts ? <Posts
+                  posts={posts}
+                  isFetching={isFetching}
+                  HasMore={HasMore}
+                  loadMoreItems={loadMoreItems}
+                /> : <Loading />} />
+            }
+            <Route path="/posts" element={posts ? <Posts
               posts={posts}
               isFetching={isFetching}
               HasMore={HasMore}
               loadMoreItems={loadMoreItems}
             /> : <Loading />} />
-            <Route path="signin" element={<Session /> } />
+            <Route path="/signin" element={<Session />} />
             <Route path="signup" element={<Registeration />} />
             <Route path="/post/:id" element={<Post />} />
             <Route path="/post/new" element={<CreateForm state={posts} />} />

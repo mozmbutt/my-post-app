@@ -17,7 +17,7 @@ function Navbar() {
 			<div className="navbar navbar-dark bg-info">
 				{isLoggedIn ?
 					<>
-						<Link className="" to="/">
+						<Link className="" to="/posts">
 							<i className="fa fa-fw fa-home"></i>
 							All Posts
 						</Link>
