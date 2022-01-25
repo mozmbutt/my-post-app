@@ -2,7 +2,7 @@ import axios from "axios"
 import React from "react"
 import { useState, useEffect } from "react"
 import Comment from './Comment'
-import CommentForm from "../comments/CommentForm";
+import CreateComment from "./CreateComment";
 
 export default function Comments({ post_id, showComment }) {
 	const [comments, setComments] = useState([])
@@ -41,7 +41,7 @@ export default function Comments({ post_id, showComment }) {
 			<div>
 				{
 					addComment &&
-					<CommentForm post_id={post_id} comments={comments} />
+					<CreateComment post_id={post_id} comments={comments} />
 				}
 			</div>
 			<div className="align-self-center mt-3">

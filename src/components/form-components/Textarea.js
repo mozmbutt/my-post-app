@@ -10,6 +10,7 @@ function Textarea({ name, placeholder, setState, value }) {
 					name={name}
 					onChange={(event) => setState(event.target.value)}
 					value={value}
+					rows="5"
 				>
 				</textarea>
 			</div>

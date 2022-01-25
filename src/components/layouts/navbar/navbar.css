@@ -1,0 +1,11 @@
+.navbar {
+    justify-content: center;
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 8px;
+}

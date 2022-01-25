@@ -3,11 +3,12 @@ import PostRow from "./PostRow"
 import PostTableHeader from "./PostTableHeader"
 import { Link } from "react-router-dom";
 import InfiniteScroll from 'react-infinite-scroll-component';
+import Loading from "../Loading";
 
 export default function index({ posts, isFetching, HasMore, loadMoreItems }) {
 	return (
 		<div>
-			<div className="d-flex justify-content-around align-items-center">
+			<div className="d-flex flex-column align-items-center p-3">
 				<h1>All Posts</h1>
 				<Link className="btn btn-info" to={'/post/new'}>
 					<i className="fa fa-fw fa-home"></i>
@@ -18,7 +19,7 @@ export default function index({ posts, isFetching, HasMore, loadMoreItems }) {
 				dataLength={posts.length}
 				next={loadMoreItems}
 				hasMore={HasMore}
-				loader={<h4>Loading...</h4>}
+				loader={<Loading />}
 			>
 				<table className="table">
 					<PostTableHeader />
